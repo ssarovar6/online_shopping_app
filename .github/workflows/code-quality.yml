@@ -21,6 +21,7 @@ jobs:
       - name: run audit
         run: |
           npm audit fix
-          npm audit 
+          npm audit --audit-level=high
+          
           
           
