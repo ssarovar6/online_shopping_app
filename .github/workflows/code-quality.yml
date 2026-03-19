@@ -19,5 +19,7 @@ jobs:
       - name: install Linter
         run: npx eslint package*.json
       - name: run audit
-        run: npm audit
+        run: |
+          npm audit 
+          npm audit fix
           
