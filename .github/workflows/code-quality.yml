@@ -1,10 +1,22 @@
 name: Code Scan
 on:
-  workflow_call:
+  workflow_dispatch:
 jobs:
   validate-code:
     runs-on: ubuntu-latest
     steps:
       - name: code checkout
         uses: actions/checkout@v4
-      -
+      - name: setup java
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+      - name: install dependencies
+        run: |
+          npm install package*.json
+          npm ci
+      - name: install Linter
+        run: npx eslint package*.json
+      - name: run audit
+        run: npm audit
+          
