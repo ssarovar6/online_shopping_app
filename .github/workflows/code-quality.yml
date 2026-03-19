@@ -20,6 +20,7 @@ jobs:
         run: npx eslint package*.json
       - name: run audit
         run: |
-          npm audit 
           npm audit fix
+          npm audit 
+          
           
