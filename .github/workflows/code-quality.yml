@@ -20,8 +20,7 @@ jobs:
         run: npx eslint package*.json
       - name: run audit
         run: |
-          npm audit --audit-level=high
-          npm audit fix
+          npm audit fix && npm audit --audit-level=high
           
           
           
