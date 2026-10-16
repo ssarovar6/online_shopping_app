@@ -1,0 +1,39 @@
+name: 'Resource destroy'
+
+on:
+  workflow_dispatch:
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: "ap-southeast-2" 
+  BUCKET_NAME: "sudhabucket-sa"
+  TABLE_NAME: "sudhatable-sa"
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./terraform # Path to your terraform folder
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Verify AWS account
+        run: aws sts get-caller-identity
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.15.4"
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Preview resources to destroy
+        run: terraform plan -destroy
+
+      - name: Destroy resources
+        run: terraform destroy      

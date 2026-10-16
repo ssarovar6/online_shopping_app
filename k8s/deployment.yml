@@ -1,10 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: online-shop
-  namespace: online-shop-prod
+  name: onlineshop-deply
+  namespace: onlineshop-app
+  labels:
+    app: online-shop
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: online-shop
@@ -14,7 +16,7 @@ spec:
         app: online-shop
     spec:
       containers:
-      - name: online-shop
+      - name: onlineshop-pod
         image: online_shop:latest
         imagePullPolicy: Never
         ports:
@@ -29,3 +31,16 @@ spec:
           limits:
             cpu: "300m"
             memory: "256Mi"
+
+        livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
