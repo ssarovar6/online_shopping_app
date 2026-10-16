@@ -44,5 +44,5 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Tag & push scanned image to dockerhub
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/skillpulse-frontend:${{ github.sha }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/online-shop:${{ github.sha }}
           
