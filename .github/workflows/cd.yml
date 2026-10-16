@@ -91,7 +91,7 @@ jobs:
               git clone ${{ github.server_url }}/${{ github.repository }}.git ~/online_shopping_app
             fi
             cd ~/online_shopping_app
-            git pull origin dev
+            git pull origin master
 
             # GENERATE THE .ENV FILE
             echo "DOCKERHUB_USERNAME=$DOCKERHUB_USERNAME" > .env 
