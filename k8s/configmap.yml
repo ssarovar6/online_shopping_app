@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: online-shop-config
-  namespace: online-shop-prod
+  namespace: onlineshop-app
 data:
   NODE_ENV: "production"
   HOST: "0.0.0.0"
