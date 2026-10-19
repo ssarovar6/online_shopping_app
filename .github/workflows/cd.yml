@@ -88,10 +88,10 @@ jobs:
 
             # Fetch updated manifests
             if [ ! -d ~/online_shopping_app ]; then
-              git clone ${{ github.server_url }}/${{ github.repository }}.git ~/online_shopping_app
+              git clone -b ${{ github.ref_name }} ${{ github.server_url }}/${{ github.repository }}.git ~/online_shopping_app
             fi
             cd ~/online_shopping_app
-            git pull origin master
+            git pull origin ${{ github.ref_name }}
 
             # GENERATE THE .ENV FILE
             echo "DOCKERHUB_USERNAME=$DOCKERHUB_USERNAME" > .env 
