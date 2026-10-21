@@ -57,24 +57,6 @@ jobs:
           fi
           echo " AWS Credentials verified successfully."
         
-        # Ensure Terraform Backend Exists
-      - name: terraform backend
-        run: |
-          # Check S3 Bucket if exist
-          if ! aws s3api head-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
-            echo "S3 bucket missing."
-          
-          fi
-
-          # # Check DynamoDB Table exist
-          if ! aws dynamodb describe-table --table-name "$TABLE_NAME" 2>/dev/null; then
-            echo "DynamoDB table missing."
-          
-            echo "Waiting for DynamoDB table to become active..."
-            aws dynamodb wait table-exists --table-name "$TABLE_NAME"
-          fi
-
-        
       # Step 4: Terraform Initialization
       - name: Terraform Init
         env:
@@ -118,4 +100,18 @@ jobs:
           if ! terraform apply -auto-approve -input=false; then
             echo " ERROR: Terraform apply failed!"
             exit 1
+          fi
+
+      # Ensure Terraform Backend Exists
+      - name: terraform backend
+        run: |
+          # Check S3 Bucket if exist
+          if ! aws s3api head-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
+            echo "S3 bucket missing."
+          
+          fi
+
+          # # Check DynamoDB Table exist
+          if ! aws dynamodb describe-table --table-name "$TABLE_NAME" 2>/dev/null; then
+            echo "DynamoDB table missing."
           fi
