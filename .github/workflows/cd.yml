@@ -117,7 +117,7 @@ jobs:
           
 
             echo "==== 6. Verifying Service Rollouts ===="
-            kubectl rollout status deployment/onlineshop-deply   -n "${NAMESPACE}" --timeout=120s
+            kubectl rollout status deployment/onlineshop-deply -n "${NAMESPACE}" --timeout=120s
 
             # Open below Links to open APP 
             echo "===================================================================="
