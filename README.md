@@ -1,115 +1,294 @@
-# Online Shop 🛍️ for Hackathon Phase 1
+# 🛍️ Online Shop
 
-[![Stars](https://img.shields.io/github/stars/iemafzalhassan/online_shop)](https://github.com/iemafzalhassan/online_shop)
-![Forks](https://img.shields.io/github/forks/iemafzalhassan/online_shop)
-![GitHub last commit](https://img.shields.io/github/last-commit/iemafzalhassan/easyshop?color=red)
-[![GitHub Profile](https://img.shields.io/badge/GitHub-iemafzalhassan-blue?logo=github&style=flat)](https://github.com/iemafzalhassan)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-<p align="center">
-
-Welcome to the **Online Shop** project – our hackathon entry for Phase 1! This repository contains a fully functional e-commerce application built to demonstrate foundational DevOps skills in three key areas:
-
-- **Git & GitHub**
-- **Linux**
-- **Docker**
-
-In this phase, your focus is on understanding the provided developer code, reviewing how these core topics are implemented, and making any necessary enhancements. When you're ready, you'll submit your work via our designated Google Form.
+A cloud-native e-commerce application deployed using modern DevOps practices on AWS infrastructure with Kubernetes orchestration, CI/CD automation, Infrastructure as Code, and security integration.
 
 ---
 
-### Project Details
+## 🚀 Project Overview
 
-### Content
+The goal of this project was to design, provision, secure, and deploy a production-style Online Shopping application using a complete DevOps workflow.
 
-- [**Situation**](#situation)
-- [**Task**](#task)
-- [**Action**](#action)
-- [**Result**](#result--resume)
+The solution leverages Terraform for infrastructure provisioning, Docker for containerization, Kubernetes for container orchestration, GitHub Actions for CI/CD automation, and Trivy for security scanning.
 
-## Getting Started
+The project demonstrates how a modern application can be deployed and managed using industry-standard DevOps tools and practices.
 
-- Video Demonstration
+---
 
-  [Video Demonstration](https://www.dropbox.com/scl/fi/06xq03rkx56hiak1080bo/videoDemo.mp4?rlkey=dje3ntpcd9zc3rzz1a1canhch&st=1vsn8k90&dl=0)
+## 🏗️ Architecture
 
-1. Home Page
+```text
+Developer
+   │
+   ▼
+GitHub Repository
+   │
+   ▼
+GitHub Actions Pipeline
+   │
+   ├── Code Checkout
+   ├── Docker Build
+   ├── Trivy Scan
+   ├── Push Application Artifacts
+   └── Kubernetes Deployment
+          │
+          ▼
+   Kubernetes Cluster
+          │
+   ┌──────┼──────┐
+   ▼      ▼      ▼
+ Pod-1  Pod-2  Pod-3
+          │
+          ▼
+    Kubernetes Service
+          │
+          ▼
+        Users
+
+Infrastructure Provisioned Using Terraform
+   ├── EC2
+   ├── S3
+   └── DynamoDB
+```
+
+---
+
+# 📸 Application Screenshots
+
+## Home Page
+
 ![Home Page](public/homePage.png)
-1. Admin Page
-![Admin Page](public/adminPage.png)
 
-## Guidelines & Resources
+## Admin Dashboard
 
-Before diving into the tasks, please review the following key resources:
-
-- [CONTRIBUTING.md](CONTRIBUTING.md): Guidelines for code contributions, commit messages, and overall coding standards.
-- [COMMANDS.md](): Command used by me throught the project from Configuration to Deployment. `Except Git Commands`
-- [ROADMAP.md](ROADMAP.md): Insights into the project vision, future enhancements, and milestones.
-- **Repository Documentation:** Explore the repository to understand how the application is built. Pay special attention to the `src` directory where the main application logic resides, as well as configuration files such as `vite.config.js` and styling in `index.css`.
-
-These documents provide the context needed to understand the project requirements and the best practices expected for your contributions.
+![Admin Dashboard](public/adminPage.png)
 
 ---
 
-### Situation
+# 🛠 Technology Stack
 
-As part of the **Train With Shubham Hackathon Phase 1**, I was given the charge of deploying an Online Shopping Portal to the internet. The main goal was to ensure that the website was easily accessible, reliable, and scalable so that it could handle user traffic efficiently. Achiving this using DevOps automation tools to develop the deployment process, reducing manual effort, and improving overall system performance. Involved setting up the necessary infrastructure, automating deployments, and ensuring the application could run smoothly in a real time.
+## Cloud
 
----
+- AWS EC2
+- AWS S3
+- AWS DynamoDB
 
-### Task
+## Infrastructure as Code
 
-- Develop the Required Infrastructre for Online Shopping Portal
-- Clonning Necessary Code and Artifacts ensurig Secrutiy and Accessbility
-- Strategize a `Deployment Plan` for brining the Applicaion to the Internet.
+- Terraform
 
-All this while ensuring:
+## Containerization
 
-- Gathering Necessary Resource for building the project.
-- Implementing Automation Scripts.
-- Using tools like `Docker` to build real world application.
-- Grasp a good Hands-On on DevOps tools.
-- Helping and Learning through Community!
-- Strong Cloud and DevOps Infrastructure.
+- Docker
 
-> Note: Remembering the Requirements
+## Container Orchestration
 
----
+- Kubernetes
 
-### Action
+## CI/CD
 
-> I did this...
+- GitHub Actions
 
-- Understood the [ROADMAP.md](ROADMAP.md) and [CONTRIBUTING.md](CONTRIBUTING.md) for build up the project.
-- Gathering the resources needed to fulfill the [`Task`](#task).
-- Build a [`Docker Installation Script`](docker_installation.sh) automation script for installing and using Docker.
-  > Running Script explained in [`COMMANDS.md File`]()!
-- Setting up this Git Repository and Adding and Commiting Files
-- Build a Dockerfile for the Online Shopping Portal Application
-- Implemented Multi-Stage Docker Build which reduced the size of Image by `1GB` and increased deployment speed by `50%` improving efficiency and faster deployment
-- Build a [`.dockerignore`](.dockerignore) file for ignoring the `Files and Directory` which are unecessary.
-- Using .dockerignore help reduce the docker image size and improving its deployment speed.
-- Built a `Docker Compose` file
-- - Lead to faster implementation of Application
-- - Performing Regular `Health Checks`.
-- - Custom Network Configuration
-- Implemented `Docker Scout` for Checking `Vulnerabilties` of Application. [`Docker Scout Report`](image_report.md)
-- Used `Amazon EC2` to bring the Application to Internet
+## Security
 
-> Shown in Video Demonstration
+- Trivy
+
+## Operating System
+
+- Ubuntu Linux
+
+## Version Control
+
+- Git
+- GitHub
+
+## Frontend
+
+- React
+- Vite
 
 ---
 
-### Result / Resume
+# 📋 Project Execution
 
-- Successfully deployed the `Online Shopping Portal` on the internet using DevOps automation tools.
-- Improved `deployment speed by 50% `and reduced `Docker image size by 1GB` using multi-stage builds.
-- Ensured security and efficiency by implementing `Docker Scout` for `vulnerability analysis`.
-- Automated the setup process with `Docker Installation Scripts` and `Docker Compose` for easy deployment.
-- Deployed the application on `Amazon EC2`, making it accessible and scalable for real users.
+## Situation
+
+The business required an Online Shopping application to be deployed on cloud infrastructure with the ability to support scalable application delivery, automated deployments, infrastructure reproducibility, and secure release practices.
+
+The objective was to eliminate manual deployment processes and establish a modern DevOps delivery pipeline.
 
 ---
 
-Good luck for the hackathon
+## Task
 
-Happy Learning :)
+As the DevOps Engineer, I was responsible for:
+
+- Provisioning AWS infrastructure.
+- Implementing Infrastructure as Code.
+- Containerizing application workloads.
+- Deploying containers to Kubernetes.
+- Building secure CI/CD pipelines.
+- Managing cloud resources and Linux servers.
+- Implementing security scanning and deployment automation.
+
+---
+
+## ⚡ Actions Taken
+
+### Infrastructure Provisioning
+
+- Provisioned AWS resources using Terraform.
+- Configured:
+  - Amazon EC2
+  - Amazon S3
+  - Amazon DynamoDB
+- Implemented reusable Infrastructure as Code practices.
+- Configured Terraform remote state management using S3 and DynamoDB.
+
+### Application Containerization
+
+- Created Dockerfiles for application packaging.
+- Implemented multi-stage Docker builds to optimize image size.
+- Improved deployment efficiency through container-based delivery.
+- Utilized `.dockerignore` to reduce build context size.
+
+### Kubernetes Implementation
+
+- Created Kubernetes manifests for application deployment.
+- Configured Kubernetes Deployments for application lifecycle management.
+- Deployed containerized workloads as Pods.
+- Configured Services for internal and external application access.
+- Implemented replica management for high availability.
+- Leveraged Kubernetes self-healing capabilities to automatically recover failed Pods.
+- Managed rolling application updates using Deployment strategies.
+
+### CI/CD Automation
+
+- Designed and implemented GitHub Actions workflows.
+- Automated:
+  - Source code checkout
+  - Build validation
+  - Docker image creation
+  - Security scanning
+  - Kubernetes deployment
+- Standardized deployment procedures using Git-based workflows.
+
+### Security Integration
+
+- Integrated Trivy image scanning into CI/CD pipelines.
+- Performed vulnerability assessments before deployment.
+- Managed secrets securely through GitHub Secrets.
+- Applied container security best practices.
+
+### Linux Administration
+
+- Automated server setup through shell scripting.
+- Developed Docker installation and configuration scripts.
+- Managed Ubuntu-based environments used for application deployment.
+- Performed troubleshooting, maintenance, and deployment support.
+
+---
+
+# ✅ Results
+
+- Successfully deployed the Online Shopping application on Kubernetes infrastructure.
+- Reduced manual deployment effort by implementing automated CI/CD pipelines.
+- Established Infrastructure as Code using Terraform for repeatable environment provisioning.
+- Improved deployment consistency using Docker containerization.
+- Enhanced application resiliency through Kubernetes Deployments and self-healing Pods.
+- Strengthened security posture through automated Trivy vulnerability scans.
+- Enabled scalable application deployment using Kubernetes replica management.
+- Standardized deployment workflows across development and deployment environments.
+
+---
+
+# ☸️ Kubernetes Features Implemented
+
+### Deployments
+
+- Declarative application deployment management
+- Rolling updates
+- Replica management
+
+### Pods
+
+- Container execution environment
+- Self-healing application instances
+
+### Services
+
+- Internal service discovery
+- External application exposure
+
+### Scaling
+
+- Replica-based scaling
+- Improved application availability
+
+---
+
+# 🔒 Security Controls
+
+- Trivy vulnerability scanning
+- GitHub Secrets management
+- Container image validation
+- Secure deployment workflows
+- Least-privilege infrastructure practices
+
+---
+
+# 📂 Repository Structure
+
+```text
+.
+├── .github/
+│   └── workflows/
+│
+├── kubernetes/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│
+├── terraform/
+│   ├── ec2.tf
+│   ├── s3.tf
+│   ├── dynamodb.tf
+│   └── outputs.tf
+│
+├── src/
+├── public/
+│
+├── Dockerfile
+├── .dockerignore
+├── docker_installation.sh
+│
+├── README.md
+├── ROADMAP.md
+├── CONTRIBUTING.md
+└── COMMANDS.md
+```
+
+---
+
+# 💼 Resume Highlights
+
+### DevOps Engineer | AWS | Terraform | Docker | Kubernetes | GitHub Actions
+
+- Provisioned AWS infrastructure using Terraform including EC2, S3, and DynamoDB resources.
+- Containerized applications using Docker and implemented optimized multi-stage builds.
+- Deployed and managed Kubernetes workloads using Deployments, Pods, ReplicaSets, and Services.
+- Implemented CI/CD pipelines using GitHub Actions for automated application delivery.
+- Integrated Trivy vulnerability scanning into deployment workflows.
+- Automated Linux server provisioning and deployment activities through shell scripting.
+- Implemented Infrastructure as Code practices to improve deployment consistency and environment reproducibility.
+- Managed Kubernetes rollouts, application updates, and production deployment troubleshooting.
+
+---
+
+# 🔮 Future Enhancements
+
+- Deploy on Amazon EKS
+- Implement Kubernetes Ingress Controller
+- Configure Horizontal Pod Autoscaler (HPA)
+- Integrate Prometheus & Grafana
+- Implement Blue-Green Deployments
+- Implement Canary Releases
+- Adopt ArgoCD GitOps Deployment Strategy

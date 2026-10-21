@@ -41,7 +41,7 @@ jobs:
             echo "Manifests already pinned to ${SHA}; nothing to commit."
             exit 0
           fi
-          git add k8s/deployment.yaml
+          git add k8s/deployment.yml
           git commit -m "deploy: pin docker-image version to ${SHA:0:7}"
           git push
 
