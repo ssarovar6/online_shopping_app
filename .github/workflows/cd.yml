@@ -109,6 +109,8 @@ jobs:
 
             # cretae namespace 
             kubectl apply -f k8s/namespace.yml
+            kubectl apply -f k8s/configmap.yml
+            kubectl apply -f service.yml
 
 
             # Deploying to Kind Cluster
