@@ -115,6 +115,8 @@ jobs:
             echo "==== 5. Deploying to Cluster ===="
             kubectl apply -f k8s/deployment.yml
           
+            kubectl get deployment onlineshop-deply -n "${NAMESPACE}"
+            kubectl get pods -n "${NAMESPACE}"
 
             echo "==== 6. Verifying Service Rollouts ===="
             kubectl rollout status deployment/onlineshop-deply -n "${NAMESPACE}" --timeout=120s
