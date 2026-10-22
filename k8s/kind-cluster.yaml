@@ -4,6 +4,10 @@ name: shopping-cluster
 nodes:
   - role: control-plane
     image: kindest/node:v1.35.1
+    extraPortMappings:
+    - containerPort: 30081
+      hostPort: 30081
+      protocol: TCP
   - role: worker
     image: kindest/node:v1.35.1
   - role: worker
