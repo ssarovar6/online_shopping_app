@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: onlineshop-pod
-        image: ssarovar6/online-shop:44800674bc4a9b2cc7017916c234e504e3b104e3
+        image: ssarovar6/online-shop:0b6eaedf5013c915d791a507cfdec81501cd0322
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
